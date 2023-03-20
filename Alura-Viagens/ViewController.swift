@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Alura-Viagens
 //
-//  Created by Wagner Duarte on 20/03/23.
+//  Created by Wagner Duarte on 20/03/23
 //
 
 import UIKit
