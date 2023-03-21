@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController {
     
     //MARK: - OUTLETS
     
@@ -18,10 +18,15 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         viagensTableView.dataSource = self
+        viagensTableView.delegate = self
+        view.backgroundColor = UIColor(red: 30, green: 59, blue: 119, alpha: 1)
     }
-    
-    //MARK: - TABLEVIEW PROTOCOLS
+}
 
+//MARK: - TableView DataSource Extension
+
+extension ViewController:UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -33,6 +38,21 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
-
 }
 
+//MARK: - TableView Delegate Extension
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 300
+    }
+    
+}
