@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         viagensTableView.dataSource = self
         viagensTableView.delegate = self
-        view.backgroundColor = UIColor(red: 30, green: 59, blue: 119, alpha: 1)
+        view.backgroundColor = UIColor(red: 30.0/255.0, green: 59.0/255.0, blue: 119.0/255.0, alpha: 1)
     }
 }
 
@@ -47,6 +47,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
+        headerView?.configuraView()
         
         return headerView
     }

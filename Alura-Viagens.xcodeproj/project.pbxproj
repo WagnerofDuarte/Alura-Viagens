@@ -60,17 +60,57 @@
 		E614C57929C8CFF2008B88C1 /* Alura-Viagens */ = {
 			isa = PBXGroup;
 			children = (
-				E614C57A29C8CFF2008B88C1 /* AppDelegate.swift */,
-				E614C57C29C8CFF2008B88C1 /* SceneDelegate.swift */,
-				E614C57E29C8CFF2008B88C1 /* ViewController.swift */,
-				E614C58029C8CFF2008B88C1 /* Main.storyboard */,
+				E678E55D29CCD9BE004F1563 /* ViewModel */,
+				E678E55B29CCD95F004F1563 /* Views */,
+				E678E55A29CCD959004F1563 /* Models */,
+				E678E55929CCD922004F1563 /* App Delegate */,
 				E614C58329C8CFF3008B88C1 /* Assets.xcassets */,
 				E614C58529C8CFF3008B88C1 /* LaunchScreen.storyboard */,
 				E614C58829C8CFF3008B88C1 /* Info.plist */,
+			);
+			path = "Alura-Viagens";
+			sourceTree = "<group>";
+		};
+		E678E55929CCD922004F1563 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E614C57A29C8CFF2008B88C1 /* AppDelegate.swift */,
+				E614C57C29C8CFF2008B88C1 /* SceneDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		E678E55A29CCD959004F1563 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E678E55B29CCD95F004F1563 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E678E55C29CCD9A3004F1563 /* Header */,
+				E614C58029C8CFF2008B88C1 /* Main.storyboard */,
+				E614C57E29C8CFF2008B88C1 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E678E55C29CCD9A3004F1563 /* Header */ = {
+			isa = PBXGroup;
+			children = (
 				E6DC883229CA13E900005D5E /* HomeTableViewHeader.xib */,
 				E6DC883429CA176B00005D5E /* HomeTableViewHeader.swift */,
 			);
-			path = "Alura-Viagens";
+			path = Header;
+			sourceTree = "<group>";
+		};
+		E678E55D29CCD9BE004F1563 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +335,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9A8JUJ4K6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Alura-Viagens/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,6 +363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9A8JUJ4K6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Alura-Viagens/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
