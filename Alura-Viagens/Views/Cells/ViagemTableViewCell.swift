@@ -34,7 +34,7 @@ class ViagemTableViewCell: UITableViewCell {
             let diarias = numeroDeDias == 1 ? "Diária" : "Diárias"
             let hospedes = numeroDehospedes == 1 ? "Pessoa" : "Pessoas"
             
-            diariaViagemLabel.text = "\(numeroDeDias) \(diarias) - \(numeroDehospedes)"
+            diariaViagemLabel.text = "\(numeroDeDias) \(diarias) - \(numeroDehospedes) \(hospedes)"
         }
         
         DispatchQueue.main.async {
