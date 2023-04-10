@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     func configuraTableView(){
         viagensTableView.register(UINib(nibName: "ViagemTableViewCell", bundle: nil), forCellReuseIdentifier: "ViagemTableViewCell")
+        viagensTableView.register(UINib(nibName: "OfertaTableViewCell", bundle: nil), forCellReuseIdentifier: "OfertaTableViewCell")
         viagensTableView.dataSource = self
         viagensTableView.delegate = self
     }
@@ -31,6 +32,10 @@ class ViewController: UIViewController {
 //MARK: - TableView DataSource Extension
 
 extension ViewController:UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sessaoDeViagens?.count ?? 0
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessaoDeViagens?[section].numeroDeLinhas ?? 0
@@ -41,15 +46,26 @@ extension ViewController:UITableViewDataSource{
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.text = "viagem \(indexPath.row)"
         
-        guard let celulaViagem = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
-            fatalError("error to create tableCell")
-        }
-        
         let viewModel = sessaoDeViagens?[indexPath.section]
         switch viewModel?.tipo {
         case .destaques:
-            celulaViagem.configuraCelula(viewModel?.viagens[indexPath.row])
-            return celulaViagem
+            
+            guard let celulaViagemDestaque = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
+                fatalError("error to create tableCell")
+            }
+            celulaViagemDestaque.configuraCelula(viewModel?.viagens[indexPath.row])
+            
+            return celulaViagemDestaque
+            
+        case .ofertas:
+            
+            guard let celulaViagemOferta = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
+                fatalError("error to create tableCell")
+            }
+            celulaViagemOferta.configuraCelula(viewModel?.viagens)
+            
+            return celulaViagemOferta
+            
         default:
             return UITableViewCell()
         }
@@ -62,14 +78,22 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
-        headerView?.configuraView()
+        if(section == 0) {
+            
+            let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
+            headerView?.configuraView()
+            
+            return headerView
+        }
         
-        return headerView
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        if(section == 0){
+            return 300
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

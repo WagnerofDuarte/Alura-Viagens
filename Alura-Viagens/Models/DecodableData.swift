@@ -46,6 +46,11 @@ func load(_ filename: String) -> [ViagemViewModel]? {
                     let destaqueViewModel = ViagemDestaqueViewModel(destaques)
                     listaViagemViewModel.insert(destaqueViewModel, at: 0)
                 }
+            case .ofertas:
+                if let ofertas = tiposDeViagens?.ofertas {
+                    let destaqueViewModel = ViagemOfertaViewModel(ofertas)
+                    listaViagemViewModel.append(destaqueViewModel)
+                }
             default:
                 break
             }
